@@ -1,0 +1,47 @@
+body {
+    padding-left: 50px;
+    padding-right: 50px ; 
+    color: black;
+}
+
+
+h1 {
+    font-family: 'Doppio one', sans-serif;
+}
+
+
+
+.card-title {
+    text-transform: uppercase;
+    font-family: 'Doppio one', sans-serif;
+}
+
+.card-text {
+    font-family: 'Farro', sans-serif;
+}
+
+.btn {
+    text-transform: uppercase;
+    font-family: 'Farro', sans-serif;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+}
+#logoImg {
+    margin: auto; 
+    padding-top: 6px;
+}
+ 
+
+.inner{
+   overflow: hidden; 
+}
+
+.inner img{
+    transition: all 1.5s ease;
+}
+
+.inner:hover img{
+    transform: scale(1.5);
+}
