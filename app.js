@@ -5,7 +5,11 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
  
 app.get('/', function (req, res) {
-  res.render("Services.ejs");
+  res.render("Home");
+});
+
+app.get("/services", function (req, res) {
+  res.render("Services")
 });
  
 var port = process.env.PORT || 3000;
