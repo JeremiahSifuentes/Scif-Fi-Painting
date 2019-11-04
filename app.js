@@ -11,6 +11,10 @@ app.get('/', function (req, res) {
 app.get("/services", function (req, res) {
   res.render("Services")
 });
+
+app.get("/about", function (req, res){
+  res.render("About");
+});
  
 var port = process.env.PORT || 3000;
 app.listen(port, function () {

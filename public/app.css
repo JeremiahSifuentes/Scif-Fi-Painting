@@ -9,7 +9,9 @@ h1 {
     font-family: 'Doppio one', sans-serif;
 }
 
-
+.about {
+    padding-top: 12px;
+}
 
 .card-title {
     text-transform: uppercase;
