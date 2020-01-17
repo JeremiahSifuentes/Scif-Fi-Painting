@@ -1,8 +1,23 @@
-body {
+ body {
     padding-left: 1em;
     padding-right: 1em ; 
     color: black;
 }
+
+p {
+    max-width: 65ch; /* change to your preferences */
+    margin-left: 50px;
+    line-height: 1.5rem;
+    }
+
+.home {
+    padding-left: 1em;
+    padding-right: 1em ; 
+    color: black;
+    background-image: url('./Scifipics/landngImg1.jpg');
+    
+}
+
 
 
 h1 {
@@ -32,14 +47,7 @@ h1 {
 .navbar-custom .navbar-nav .nav-link {
     color: rgb(255, 255, 255);
 }
-/*
-#logoImg {
-    margin: auto; 
-    padding-top: 17px;
-    max-width: 100%;
-    height: auto;
-}
-*/ 
+
 
 .inner{
    overflow: hidden; 
@@ -53,7 +61,3 @@ h1 {
     transform: scale(1.5);
 }
 
-#logo_wrapper img {
-    max-width: 100%;
-    height: auto;
-  }
