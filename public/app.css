@@ -1,34 +1,95 @@
- body {
-    padding-left: 1em;
-    padding-right: 1em ; 
-    color: black;
+html, body {
+    height: 100%;
+  }
+  
+  #wrap {
+    min-height: 100%;
+  }
+  
+  #main {
+    overflow:auto;
+    padding-bottom:120px; /* this needs to be bigger than footer height*/
+  }
+  
+  .footer {
+    position:relative;
+    margin-top: -115px; /* negative value of footer height */
+    height: 115px;
+    clear:both;
+    padding-top:25px;
+    background-color: rgb(80, 128, 156);
+  } 
+
+
+
+.footer .container {
+  text-align: left;
+  font-size: small;
+  padding-left: 9em;
+  
 }
 
-p {
-    max-width: 65ch; /* change to your preferences */
-    margin-left: 50px;
-    line-height: 1.5rem;
+div .col-lg-4 {
+  justify-content: center;
+  margin: auto 0px;
+}
+  
+
+
+
+    h1 {
+        font-family: 'Doppio one', sans-serif;
+        margin-top:-60px;
+      padding-top:60px;
     }
 
+
+
 .home {
-    padding-left: 1em;
-    padding-right: 1em ; 
     color: black;
     background-image: url('./Scifipics/landngImg1.jpg');
     
 }
 
 
+  .home .container-fluid{
+    height:100%;
+    display:table;
+    width: 100%;
+    padding: 0;
+  }
 
-h1 {
-    font-family: 'Doppio one', sans-serif;
-    margin-top:-60px;
-  padding-top:60px;
-}
+  .home .row-fluid {height: 100%; display:table-cell; vertical-align: middle};
+   
+   
+  
+.home .centering {
+      float:none;
+      margin:0 auto;
+    }
+
 
 .about {
     padding-top: 12px;
 }
+
+.aboutSVG {
+  display: block;
+  margin: auto;
+  
+}
+
+.aboutH2 {
+  text-align: center;
+  padding-right: 20px;
+  padding-top: 11px;
+  
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+  }
 
 .card-title {
     text-transform: uppercase;
@@ -37,20 +98,28 @@ h1 {
 
 .card-text {
     font-family: 'Farro', sans-serif;
+    margin: 0;
+    text-align: left;
+    line-height: 1.5rem;
+    
 }
 
-.btn {
+
+
+button.btn {
     text-transform: uppercase;
     font-family: 'Farro', sans-serif;
+    margin-top: auto;
 }
+
+
 
 .navbar-custom .navbar-nav .nav-link {
     color: rgb(255, 255, 255);
 }
 
-
 .inner{
-   overflow: hidden; 
+  overflow: hidden; 
 }
 
 .inner img{
@@ -60,4 +129,24 @@ h1 {
 .inner:hover img{
     transform: scale(1.5);
 }
+
+
+.link-animate::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: width .3s;
+    margin: auto;
+}
+
+
+.link-animate:hover::after {
+    width: 75%;
+    margin: auto;
+    transition: width .64s;
+    
+}
+
 
