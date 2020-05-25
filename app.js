@@ -54,9 +54,3 @@ app.get("/contact", function (req, res){
 
 
 
-
-
-var port = process.env.PORT || 3000;
-app.listen(port, function () {
-  console.log("The server started running!!!!!!!");
-});
