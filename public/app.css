@@ -20,6 +20,10 @@ html, body {
     background-color: rgb(80, 128, 156);
   } 
 
+  .footer p {
+    color: whitesmoke;
+  }
+
 
 
 .footer .container {
@@ -110,8 +114,15 @@ button.btn {
     text-transform: uppercase;
     font-family: 'Farro', sans-serif;
     margin-top: auto;
+    padding-top: auto;
+    background-color: rgb(80, 128, 156);
+    color: whitesmoke;
+    
 }
 
+.btn a {
+  color: whitesmoke;
+}
 
 
 .navbar-custom .navbar-nav .nav-link {
@@ -139,6 +150,7 @@ button.btn {
     background: black;
     transition: width .3s;
     margin: auto;
+    color: whitesmoke;
 }
 
 
