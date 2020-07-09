@@ -1,27 +1,45 @@
 //Requiring installed packages to use 
-const express = require('express');
 const path = require('path');
+const express = require('express');
+const PORT = process.env.PORT || 3000;
+const flash = require('connect-flash');
+const env = require('dotenv').config();
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-const env = require('dotenv').config();
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
+
 var app = express();
 
-const PORT = process.env.PORT || 3000;
-
-app.use(bodyParser.urlencoded({ extended: false}));
+//Middlewares
+app.use(flash());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(session({
+  name: 'End of daze is a good song',
+  secret: 'Sharingan!',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 60000
+  }
+}));
 
+
+//app will listen on selected port
 app.listen(PORT, () => {
     console.log("You are listening on port" + "" + PORT)
 });
 
+//Set view engine
 app.use(express.static("public"));
 app.set("view engine", "ejs");
  
 
 //Routes
 app.get('/', function (req, res) {
-  res.render("Home");
+  res.render("Home", {message: req.flash('success')});
 });
 
 app.get("/services", function (req, res) {
@@ -34,28 +52,27 @@ app.get("/about", function (req, res){
 
 app.get('/contact', (req, res) => {
   res.render("Contact");
+
 });
 
+//Nodemailer setup with contact form
 app.post('/contact', (req, res) => {
   // async..await is not allowed in global scope, must use a wrapper
   async function main() {
-    // Generate test SMTP service account from ethereal.email
-    // Only needed if you don't have a real mail account for testing
     let testAccount = await nodemailer.createTestAccount();
-  
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
       service: "Gmail",
       auth: {
-        user: process.env.GMAIL_EMAIL, // generated ethereal user
-        pass: process.env.GMAIL_PASS, // generated ethereal password
+        user: process.env.GMAIL_EMAIL, //  user
+        pass: process.env.GMAIL_PASS, // password
       },
     });
   
     // send mail with defined transport object
     let info = await transporter.sendMail({
       
-      to: 'scifipaintingtx@gmail.com', // list of receivers
+      to: process.env.GMAIL_TO, // list of receivers
       subject: req.body.subject, // Subject line
       text: req.body.user_message, // plain text body
       replyTo: req.body.user_email //email address line
@@ -68,34 +85,7 @@ app.post('/contact', (req, res) => {
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
   }
-  
-  main().catch(console.error);
-
-  res.redirect("/contact");
-})
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  main().catch(console.error)
+req.flash('success', 'Message Sent!')
+res.redirect('/')
+});

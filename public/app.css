@@ -147,7 +147,7 @@ button.btn {
     display: block;
     width: 0;
     height: 2px;
-    background: black;
+    background: whitesmoke;
     transition: width .3s;
     margin: auto;
     color: whitesmoke;
